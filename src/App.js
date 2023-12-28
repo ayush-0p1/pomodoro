@@ -13,7 +13,7 @@ function App() {
   return (
       <div className="App">
       <Navbar title = "Pomodoro"/>
-      <div className='container' style={{paddingTop :'80px' ,height: '400px',width : '550px' ,border:'1px solid #FFFFFF' ,borderRadius :'10px'}}>
+      <div className='container' style={{paddingTop :'80px' ,height: '470px',width : '550px' ,border:'2px solid #FFFFFF' ,borderRadius :'10px'}}>
         <Timer/>
       </div>
       </div>

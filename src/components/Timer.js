@@ -38,12 +38,12 @@ const Timer = () => {
 
   return (
     <div>
-      <button type="button" onClick={handleReset} className="btn btn-primary mx-1" >Pomodoro</button>
-      <button type="button" onClick={short} className="btn btn-primary mx-1" >Short Break</button>
-      <button type="button" onClick={long} className="btn btn-primary mx-1" >Long Break</button>
-      <h1 style={{paddingTop : '60px',color : 'white'}}><strong>{formattedTime}</strong></h1>
+      <button type="button" onClick={handleReset} className="btn btn-primary mx-1" style={{backgroundColor :'#ba4949' , borderColor :'#ba4949' ,fontSize :'20px'}}><strong>Pomodoro</strong></button>
+      <button type="button" onClick={short} className="btn btn-primary mx-1" style={{backgroundColor :'#ba4949' , borderColor :'#ba4949' ,fontSize :'20px'}}><strong>Short Break</strong></button>
+      <button type="button" onClick={long} className="btn btn-primary mx-1" style={{backgroundColor :'#ba4949' , borderColor :'#ba4949' ,fontSize :'20px'}}><strong>Long Break</strong></button>
+      <h1 style={{paddingTop : '60px',color : 'white' , fontSize : '90px'}}><strong>{formattedTime}</strong></h1>
       <div style={{paddingTop : '60px'}}>
-      <button type="button" onClick={() => setIsActive(!isActive)} className="btn btn-primary" >{isActive ? 'Pause' : 'Start'} Timer</button>
+      <button type="button" onClick={() => setIsActive(!isActive)} className="btn btn-primary" style={{backgroundColor :'#ba4949' , borderColor :'#ba4949' ,fontSize :'20px'}}><strong>{isActive ? 'Pause' : 'Start'} Timer</strong></button>
       </div>
       
     </div>
