@@ -1,38 +1,59 @@
 import React, { useState, useEffect } from 'react';
+import clock from './clock.mp3';
+import alarm from './alarm.wav';
 
 
-const Timer = () => {
+const Timer = ({ pomodoroTime, shortBreakTime, longBreakTime ,isSoundOn }) => {
+  
   const [seconds, setSeconds] = useState(1800);
   const [isActive, setIsActive] = useState(false); 
-  const shortbreak = 120 ;
-  const longbreak = 600 ;
+  const [alaram , setAlaram] = useState('');
 
+  const playClockSound = () => {
+    if(isSoundOn){
+      const audio = new Audio(clock);
+      audio.play();
+    }
+  };
+
+  const playAlarmSound = () => {
+    const al = new Audio(alarm);
+    al.play();
+  };
+  
   useEffect(() => {
     let intervalId ;
-
+    
     if (isActive && seconds > 0) {
       intervalId = setInterval(() => {
-        setSeconds(prevSeconds => prevSeconds - 1);
+        setSeconds((prevSeconds) => {
+          return prevSeconds - 1;
+        } , playClockSound());
       }, 1000);
-
       return () => clearInterval(intervalId);
     }
-  }, [isActive , seconds]); 
+
+    if(isActive && seconds == 0){
+      playAlarmSound();
+      short();
+    }
+  }, [isActive , seconds ,isSoundOn]); 
+  
 
   const formattedTime = new Date(seconds * 1000).toISOString().substr(11, 8);
   
   const handleReset = () => {
-    setSeconds(1800);
+    setSeconds(pomodoroTime);
     setIsActive(false);
   };
 
   const short = () => {
-    setSeconds(shortbreak) ;
+    setSeconds(shortBreakTime) ;
     setIsActive(false) ;
   }
 
   const long = () => {
-    setSeconds(longbreak) ;
+    setSeconds(longBreakTime) ;
     setIsActive(false) ;
   }
 
