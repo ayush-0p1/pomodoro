@@ -3,7 +3,7 @@
   background-color: #ba4949;
   background-repeat: repeat-y;
   padding-bottom: 324px;
-  animation: changeColor 8s infinite alternate;
+  animation: changeColor 6s infinite alternate;
 }
 
 @keyframes changeColor {
